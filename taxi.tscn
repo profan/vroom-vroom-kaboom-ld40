@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://raw/taxi.png" type="Texture" id=1]
+[ext_resource path="res://taxi.gd" type="Script" id=2]
 
 [node name="taxi" type="Sprite"]
 
 texture = ExtResource( 1 )
 centered = false
+script = ExtResource( 2 )
 _sections_unfolded = [ "Offset" ]
 
 

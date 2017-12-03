@@ -11,6 +11,7 @@ config_version=3
 [application]
 
 config/name="vroom-vroom-kaboom"
+run/main_scene="res://level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -29,6 +30,12 @@ window/stretch/mode="2d"
 [gdnative]
 
 singletons=[  ]
+
+[input]
+
+delete_instruction=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777224,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
+ ]
 
 [rendering]
 
