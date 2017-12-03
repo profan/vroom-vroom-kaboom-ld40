@@ -28,7 +28,7 @@ _sections_unfolded = [ "Cell", "Transform", "Z" ]
 
 [node name="taxi" parent="." instance=ExtResource( 2 )]
 
-position = Vector2( 144.451, 256.606 )
+position = Vector2( 46.5045, 271.57 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Transform" ]
