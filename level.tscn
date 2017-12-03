@@ -43,4 +43,10 @@ scale = Vector2( 1, 1 )
 
 [node name="ui" parent="canvas" instance=ExtResource( 4 )]
 
+[node name="destinations" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="destinations"]
+
+position = Vector2( 606, 33 )
+
 
