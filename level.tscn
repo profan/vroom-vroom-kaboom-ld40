@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://camera.gd" type="Script" id=1]
-[ext_resource path="res://tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://taxi.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://level.gd" type="Script" id=1]
+[ext_resource path="res://camera.gd" type="Script" id=2]
+[ext_resource path="res://tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://taxi.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui.tscn" type="PackedScene" id=5]
 
 [node name="level" type="Node2D"]
+
+script = ExtResource( 1 )
 
 [node name="camera" type="Camera2D" parent="."]
 
@@ -29,14 +32,14 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Drag Margin" ]
 
 [node name="tile_map" type="TileMap" parent="."]
 
 scale = Vector2( 2, 2 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -46,17 +49,25 @@ cell_y_sort = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 occluder_light_mask = 1
-tile_data = PoolIntArray( 0, 2, 1, 1, 2, 1, 3, 1, 4, 1, 5, 11, 6, 0, 7, 0, 8, 0, 9, 5, 65536, 7, 65537, 1610612759, 65538, 1610612760, 65539, 1610612760, 65540, -1073741801, 65541, 7, 65545, 7, 131072, 7, 131073, -1610612712, 131074, 25, 131075, 25, 131076, -1073741800, 131077, 7, 131081, 7, 196608, 7, 196609, 14, 196610, 24, 196611, 24, 196612, 14, 196613, 7, 196614, 14, 196617, 7, 262144, 13, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 10, 262150, 5, 262153, 7, 327680, 7, 327681, 1610612759, 327682, 1610612760, 327683, 1610612760, 327684, 1610612760, 327685, -1073741801, 327686, 7, 327689, 7, 393216, 7, 393217, -1610612712, 393218, -1610612711, 393219, -1610612711, 393220, -1610612711, 393221, -1073741800, 393222, 7, 393225, 7, 458752, 7, 458753, 14, 458754, 24, 458755, 24, 458756, 24, 458757, 14, 458758, 7, 458760, 14, 458761, 7, 524288, 8, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 10, 524295, 0, 524296, 0, 524297, 4 )
-_sections_unfolded = [ "Cell", "Transform", "Z" ]
+tile_data = PoolIntArray( 0, 2, 1, 26, 2, 26, 3, 26, 4, 26, 5, 11, 6, 26, 7, 26, 8, 26, 9, 5, 65536, 7, 65537, 1610612759, 65538, 1610612760, 65539, 1610612760, 65540, -1073741801, 65541, 7, 65545, 7, 131072, 7, 131073, -1610612712, 131074, 25, 131075, 25, 131076, -1073741800, 131077, 7, 131081, 7, 196608, 7, 196609, 14, 196610, 24, 196611, 24, 196612, 14, 196613, 7, 196614, 14, 196617, 7, 262144, 13, 262145, 26, 262146, 26, 262147, 26, 262148, 26, 262149, 10, 262150, 5, 262153, 7, 327680, 7, 327681, 1610612759, 327682, 1610612760, 327683, 1610612760, 327684, 1610612760, 327685, -1073741801, 327686, 7, 327689, 7, 393216, 7, 393217, -1610612712, 393218, -1610612711, 393219, -1610612711, 393220, -1610612711, 393221, -1073741800, 393222, 7, 393225, 7, 458752, 7, 458753, 14, 458754, 24, 458755, 24, 458756, 24, 458757, 14, 458758, 7, 458760, 14, 458761, 7, 524288, 8, 524289, 26, 524290, 26, 524291, 26, 524292, 26, 524293, 26, 524294, 10, 524295, 26, 524296, 26, 524297, 4 )
+_sections_unfolded = [ "Cell", "Collision", "Transform", "Z" ]
 
-[node name="taxi" parent="." instance=ExtResource( 3 )]
+[node name="taxis" type="Node" parent="."]
+
+[node name="1" parent="taxis" instance=ExtResource( 4 )]
 
 position = Vector2( 46.5045, 271.57 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="destinations" type="Node" parent="."]
+
+[node name="1" type="Node2D" parent="destinations"]
+
+position = Vector2( 606, 33 )
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
@@ -65,12 +76,6 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="ui" parent="canvas" instance=ExtResource( 4 )]
-
-[node name="destinations" type="Node2D" parent="."]
-
-[node name="1" type="Node2D" parent="destinations"]
-
-position = Vector2( 606, 33 )
+[node name="ui" parent="canvas" instance=ExtResource( 5 )]
 
 
