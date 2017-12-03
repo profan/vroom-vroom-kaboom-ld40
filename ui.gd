@@ -47,7 +47,7 @@ func _on_turn_left():
 
 func _on_turn_right():
 	first_track.add_instruction(">")
-	
+
 func _on_uturn():
 	first_track.add_instruction("u")
 	
