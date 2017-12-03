@@ -350,8 +350,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body13" type="StaticBody2D" parent="house_one"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -376,8 +376,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body14" type="StaticBody2D" parent="grass_mid"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -402,8 +402,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body15" type="StaticBody2D" parent="grass_left"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -428,8 +428,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body16" type="StaticBody2D" parent="grass_right"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -454,8 +454,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body17" type="StaticBody2D" parent="grass_corner"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -480,8 +480,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body18" type="StaticBody2D" parent="grass_t"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
@@ -506,8 +506,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 [node name="body19" type="StaticBody2D" parent="grass_c"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
