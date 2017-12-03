@@ -6,16 +6,16 @@ var selected_index
 
 func _ready():
 	instr_list.connect("item_selected", self, "on_item_selected")
-	instr_list.connect("nothing_selected", self, "on_nothing_selected")
+	instr_list.connect("focus_exited", self, "on_nothing_selected")
 
 func add_instruction(instr):
 	instr_list.add_item(instr)
+	
+func on_nothing_selected(i):
+	selected_index = -1
 
 func on_item_selected(i):
 	selected_index = i
-
-func on_nothing_selected():
-	selected_index = -1
 
 func _input(event):
 	if event.is_action("delete_instruction"):
