@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://taxi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://raw/new_taxi.png" type="Texture" id=3]
 
 [node name="level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 
+scale = Vector2( 2, 2 )
 mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
@@ -20,7 +23,14 @@ collision_bounce = 0.0
 collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
-tile_data = PoolIntArray( 0, 2, 1, 1, 2, 1, 3, 1, 4, 1, 5, 11, 6, 0, 7, 0, 8, 0, 9, 5, 65536, 7, 65541, 7, 65545, 7, 131072, 7, 131077, 7, 131081, 7, 196608, 7, 196613, 7, 196617, 7, 262144, 13, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 10, 262150, 5, 262153, 7, 327680, 7, 327686, 7, 327689, 7, 393216, 7, 393222, 7, 393225, 7, 458752, 7, 458758, 7, 458761, 7, 524288, 8, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 10, 524295, 0, 524296, 0, 524297, 4 )
-_sections_unfolded = [ "Cell" ]
+tile_data = PoolIntArray( 0, 2, 1, 1, 2, 1, 3, 1, 4, 1, 5, 11, 6, 0, 7, 0, 8, 0, 9, 5, 65536, 7, 65541, 7, 65545, 7, 131072, 7, 131077, 7, 131081, 7, 196608, 7, 196609, 18, 196610, 14, 196613, 7, 196614, 14, 196617, 7, 262144, 13, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 10, 262150, 5, 262153, 7, 327680, 7, 327686, 7, 327689, 7, 393216, 7, 393222, 7, 393225, 7, 458752, 7, 458753, 14, 458754, 17, 458755, 16, 458756, 18, 458757, 14, 458758, 7, 458760, 14, 458761, 7, 524288, 8, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 10, 524295, 0, 524296, 0, 524297, 4 )
+_sections_unfolded = [ "Cell", "Transform", "Z" ]
+
+[node name="taxi" parent="." instance=ExtResource( 2 )]
+
+position = Vector2( 144.451, 256.606 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 

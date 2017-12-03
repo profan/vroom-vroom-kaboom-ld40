@@ -99,4 +99,44 @@ region_enabled = true
 region_rect = Rect2( 137, 35, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
+[node name="house_one" type="Sprite" parent="."]
+
+position = Vector2( 320, 64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 171, 35, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
+[node name="house_one_mid" type="Sprite" parent="."]
+
+position = Vector2( 384, 64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 205, 35, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
+[node name="house_one_left" type="Sprite" parent="."]
+
+position = Vector2( 0, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1, 69, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
+[node name="house_one_right" type="Sprite" parent="."]
+
+position = Vector2( 64, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 35, 69, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
+[node name="house_one_section" type="Sprite" parent="."]
+
+position = Vector2( 128, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 69, 69, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
 
