@@ -7,6 +7,12 @@ const Instructions = {
 	U_TURN = "u"
 }
 
+enum State {
+	RUNNING,
+	PAUSED,
+	STOPPED
+}
+
 signal on_taxi_registered(taxi)
 signal on_play_level
 signal on_pause_level
@@ -14,6 +20,7 @@ signal on_stop_level
 
 var taxis
 var current_time
+var current_state
 
 func _ready():
 	set_process(false)
