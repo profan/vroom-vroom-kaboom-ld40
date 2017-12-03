@@ -7,8 +7,8 @@ var drag_delta = Vector2()
 var dragging = false
 
 const DRAG_SPEED = 1
-const MIN_ZOOM = 0.1
-const MAX_ZOOM = 2
+const MIN_ZOOM = 0.5
+const MAX_ZOOM = 3
 
 const ZOOM_MOVE_CLAMP = 24
 
@@ -27,7 +27,7 @@ func _input(event):
 			dragging = false
 		elif event.is_action_pressed("zoom_in"):
 			zoom.x = min(zoom.x + 0.1, MAX_ZOOM)
-			zoom.y = min(zoom.x + 0.1, MAX_ZOOM)
+			zoom.y = min(zoom.y + 0.1, MAX_ZOOM)
 		elif event.is_action_pressed("zoom_out"):
 			zoom.x = max(zoom.x - 0.1, MIN_ZOOM)
 			zoom.y = max(zoom.y - 0.1, MIN_ZOOM)
