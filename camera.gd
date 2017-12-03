@@ -7,8 +7,6 @@ var drag_delta = Vector2()
 var dragging = false
 
 const DRAG_SPEED = 1
-const MAX_DRAG_SPEED = 24 # pixels per frame in each direction
-
 const MIN_ZOOM = 0.1
 const MAX_ZOOM = 2
 
@@ -42,10 +40,9 @@ func _process(delta):
 		var mp = mouse_position
 		drag_delta.x = (mp.x - drag_start.x)
 		drag_delta.y = (mp.y - drag_start.y)
-		# drag_delta.clamped(MAX_DRAG_SPEED)
 		
-		position.x -= drag_delta.x
-		position.y -= drag_delta.y
+		position.x -= (drag_delta.x) * (zoom.x)
+		position.y -= (drag_delta.y) * (zoom.y)
 		
 		drag_start.x = mp.x
 		drag_start.y = mp.y
