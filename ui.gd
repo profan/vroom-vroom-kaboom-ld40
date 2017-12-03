@@ -29,6 +29,11 @@ func _ready():
 	play_btn.connect("pressed", self, "_on_play")
 	pause_btn.connect("pressed", self, "_on_pause")
 	stop_btn.connect("pressed", self, "_on_stop")
+	
+	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
+
+func _on_taxi_registered(taxi):
+	taxis_label.text = str(Game.get_taxi_count())
 
 func _on_go_fwd():
 	first_track.add_instruction("^")

@@ -5,7 +5,7 @@ var instruction_id
 var instructions
 
 func _ready():
-	pass
+	Game.call_deferred("register_taxi", self)
 
 func _process(delta):
 	pass
