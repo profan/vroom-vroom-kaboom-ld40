@@ -10,6 +10,8 @@ const DRAG_SPEED = 1
 const MIN_ZOOM = 0.1
 const MAX_ZOOM = 2
 
+const ZOOM_MOVE_CLAMP = 24
+
 func _ready():
 	pass
 
@@ -29,6 +31,11 @@ func _input(event):
 		elif event.is_action_pressed("zoom_out"):
 			zoom.x = max(zoom.x - 0.1, MIN_ZOOM)
 			zoom.y = max(zoom.y - 0.1, MIN_ZOOM)
+			var gp = get_global_mouse_position()
+			var md = gp - global_position
+			var clamped_md = md / 2
+			global_position.x += clamped_md.x * (zoom.x / 2)
+			global_position.y += clamped_md.y * (zoom.y / 2)
 	elif event is InputEventMouseMotion:
 		mouse_position.x = event.position.x
 		mouse_position.y = event.position.y

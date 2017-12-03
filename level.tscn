@@ -9,7 +9,7 @@
 
 [node name="camera" type="Camera2D" parent="."]
 
-anchor_mode = 0
+anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
