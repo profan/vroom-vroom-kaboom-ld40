@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://taxi.gd" type="Script" id=1]
 [ext_resource path="res://raw/new_taxi.png" type="Texture" id=2]
 [ext_resource path="res://taxi_sprite.gd" type="Script" id=3]
+[ext_resource path="res://ui_theme.tres" type="Theme" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,5 +30,46 @@ _sections_unfolded = [ "Transform" ]
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Offset" ]
+
+[node name="label_panel" type="ColorRect" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -68.0
+margin_right = 20.0
+margin_bottom = -28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="label" type="Label" parent="label_panel"]
+
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 4 )
+text = "N"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
 
 

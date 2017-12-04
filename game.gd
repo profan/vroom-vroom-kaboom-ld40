@@ -19,6 +19,8 @@ signal on_play_level
 signal on_pause_level
 signal on_stop_level
 
+signal on_toggle_labels(v)
+
 var taxis
 var current_time
 var current_state
@@ -44,6 +46,9 @@ func select_taxi(tid):
 	
 func get_taxi_count():
 	return taxis.size()
+
+func toggle_labels(v):
+	emit_signal("on_toggle_labels", v)
 
 # control flow
 func run_level():

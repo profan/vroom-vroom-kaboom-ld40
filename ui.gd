@@ -15,6 +15,9 @@ onready var time_label = get_node("top_container/time_container/time_value")
 onready var score_taxis_label = get_node("top_container/time_container/score_taxis_value")
 onready var score_alive_label = get_node("top_container/time_container/score_alive_value")
 
+# ui stuff
+onready var show_labels_checkbox = get_node("top_container/time_container/show_labels_checkbox")
+
 # tracks of instructions
 onready var tracks = get_node("instr_container/instr_panels/tracks_panel/tracks_scroll/tracks")
 
@@ -31,12 +34,17 @@ func _ready():
 	pause_btn.connect("pressed", self, "_on_pause")
 	stop_btn.connect("pressed", self, "_on_stop")
 	
+	show_labels_checkbox.connect("toggled", self, "_on_show_labels_checkbox_toggled")
+	
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
 	set_process(false)
 	
 	# initially off
 	pause_btn.disabled = true
+
+func _on_show_labels_checkbox_toggled(v):
+	Game.toggle_labels(v)
 
 func get_track(id):
 	var found_track
@@ -53,7 +61,7 @@ func _update_labels():
 	var taxis_alive_percentage = (Game.get_taxi_count() / Game.get_taxi_count()) * 100
 	time_label.text = "%.2fs" % Game.current_time
 	score_taxis_label.text = "%s/%s" % [taxis_done, Game.get_taxi_count()]
-	score_alive_label.text = "%s %%" % taxis_alive_percentage
+	score_alive_label.text = "%s %% |" % taxis_alive_percentage
 
 func _on_taxi_registered(taxi):
 	tracks.register_taxi(taxi)

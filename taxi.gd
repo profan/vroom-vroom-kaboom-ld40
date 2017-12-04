@@ -3,6 +3,8 @@ extends KinematicBody2D
 export(int, "UP", "DOWN", "LEFT", "RIGHT") var direction;
 
 onready var sprite = get_node("sprite")
+onready var label_panel = get_node("label_panel")
+onready var label = get_node("label_panel/label")
 
 var MOVEMENT_SPEED = 128 # pixels per second i guess, half a tile?
 var MOVEMENT_TEST = 32
@@ -46,8 +48,15 @@ func _ready():
 	taxi_pos = Vector2(position.x, position.y)
 	cur_direction = taxi_dir
 	
+	# label yes
+	label.text = get_name()
+	Game.connect("on_toggle_labels", self, "_on_toggle_labels")
+	
 	# resetto
 	on_stop()
+
+func _on_toggle_labels(v):
+	label_panel.visible = v
 
 func set_tilemap(tm):
 	tilemap = tm
