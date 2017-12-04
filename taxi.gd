@@ -19,8 +19,9 @@ var instructions
 var pc = 0
 
 func _ready():
-	Game.call_deferred("register_taxi", self)
+	taxi_id = 1
 	taxi_dir = direction
+	Game.call_deferred("register_taxi", self)
 
 func _process(delta):
 	pass

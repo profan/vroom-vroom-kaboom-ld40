@@ -13,6 +13,7 @@ enum State {
 }
 
 signal on_taxi_registered(taxi)
+signal on_taxi_selected(tid)
 signal on_play_level
 signal on_pause_level
 signal on_stop_level

@@ -17,7 +17,9 @@ onready var score_alive_label = get_node("top_container/time_container/score_ali
 
 # tracks of instructions
 onready var tracks = get_node("instr_container/instr_panels/tracks_panel/tracks_scroll/tracks")
-onready var first_track = get_node("instr_container/instr_panels/tracks_panel/tracks_scroll/tracks/track")
+
+# intermediate state
+var current_track
 
 func _ready():
 	
@@ -30,7 +32,15 @@ func _ready():
 	stop_btn.connect("pressed", self, "_on_stop")
 	
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
+	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
 	set_process(false)
+
+func get_track(id):
+	var found_track
+	for track in tracks.get_children():
+		if track.get_track_id() == id:
+			found_track = track
+	return found_track
 
 func _process(delta):
 	_update_labels()
@@ -43,16 +53,23 @@ func _update_labels():
 	score_alive_label.text = "%s %%" % taxis_alive_percentage
 
 func _on_taxi_registered(taxi):
+	tracks.register_taxi(taxi)
 	_update_labels()
 
+func _on_taxi_selected(tid):
+	current_track = get_track(tid)
+
 func _on_turn_left():
-	first_track.add_instruction("<")
+	if current_track != null:
+		current_track.add_instruction("<")
 
 func _on_turn_right():
-	first_track.add_instruction(">")
+	if current_track != null:
+		current_track.add_instruction(">")
 
 func _on_uturn():
-	first_track.add_instruction("u")
+	if current_track != null:
+		current_track.add_instruction("u")
 	
 func _on_play():
 	Game.run_level()
