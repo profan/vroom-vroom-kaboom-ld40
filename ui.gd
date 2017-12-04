@@ -7,10 +7,6 @@ onready var instr_container = get_node("instr_container")
 onready var win_dialog = get_node("win_dialog")
 onready var back_dialog = get_node("back_dialog")
 
-# add instructions
-onready var turn_left_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_left_btn")
-onready var turn_right_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_right_btn")
-
 # control game flow
 onready var play_btn = get_node("instr_container/instr_panels/instr_panel/instructions/play_controls/play_btn")
 onready var pause_btn = get_node("instr_container/instr_panels/instr_panel/instructions/play_controls/pause_btn")
@@ -51,9 +47,6 @@ func _ready():
 	
 	capture_zoom.connect("mouse_entered", self, "_enter_capture")
 	capture_zoom.connect("mouse_exited", self, "_exit_capture")
-	
-	turn_left_btn.connect("pressed", self, "_on_turn_left")
-	turn_right_btn.connect("pressed", self, "_on_turn_right")
 	
 	play_btn.connect("pressed", self, "_on_play_btn")
 	pause_btn.connect("pressed", self, "_on_pause_btn")
@@ -134,12 +127,6 @@ func _on_taxi_registered(taxi):
 
 func _on_taxi_selected(tid):
 	current_track = get_track(tid)
-
-func _on_turn_left():
-	pass
-
-func _on_turn_right():
-	pass
 	
 func _on_play_btn():
 	Game.run_level()

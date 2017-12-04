@@ -46,7 +46,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 977.0
+margin_right = 902.0
 margin_bottom = 45.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -461,7 +461,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="skip_btn" type="Button" parent="instr_container/instr_panels/instr_panel/instructions"]
+[node name="skip_label" type="Label" parent="instr_container/instr_panels/instr_panel/instructions"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -469,63 +469,60 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 112.0
 margin_right = 189.0
-margin_bottom = 144.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Forward: ^"
-flat = false
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
-[node name="turn_left_btn" type="Button" parent="instr_container/instr_panels/instr_panel/instructions"]
+[node name="turn_left_label" type="Label" parent="instr_container/instr_panels/instr_panel/instructions"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 148.0
+margin_top = 144.0
 margin_right = 189.0
-margin_bottom = 180.0
+margin_bottom = 172.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Turn Left:  <"
-flat = false
+text = "Turn Left: <"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
-[node name="turn_right_btn" type="Button" parent="instr_container/instr_panels/instr_panel/instructions"]
+[node name="turn_right_label" type="Label" parent="instr_container/instr_panels/instr_panel/instructions"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 184.0
+margin_top = 176.0
 margin_right = 189.0
-margin_bottom = 216.0
+margin_bottom = 204.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Turn Right:  >"
-flat = false
+text = "Turn Right: >"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="tracks_panel" type="PanelContainer" parent="instr_container/instr_panels"]
 
