@@ -1,6 +1,27 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://level_select.gd" type="Script" id=2]
+[ext_resource path="res://raw/taxibars.png" type="Texture" id=3]
+[ext_resource path="res://title_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://level_square.tscn" type="PackedScene" id=5]
 
 [node name="level_select" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
+
+[node name="background" type="TextureRect" parent="."]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -8,10 +29,194 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 40.0
 margin_bottom = 40.0
+rect_min_size = Vector2( 960, 720 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="title_panel" type="ColorRect" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -8.0
+margin_right = 960.0
+margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+color = Color( 1, 0.703125, 0, 1 )
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="label" type="Label" parent="title_panel"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 9.0
+margin_right = 954.0
+margin_bottom = 82.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level Select"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="grid" type="GridContainer" parent="."]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 154.0
+margin_top = 123.0
+margin_right = 74.0
+margin_bottom = 221.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 20
+custom_constants/hseparation = 48
+columns = 4
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
+
+[node name="1" parent="grid" instance=ExtResource( 5 )]
+
+margin_right = 128.0
+margin_bottom = 128.0
+
+[node name="2" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 176.0
+margin_right = 304.0
+margin_bottom = 128.0
+
+[node name="3" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 352.0
+margin_right = 480.0
+margin_bottom = 128.0
+
+[node name="4" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 528.0
+margin_right = 656.0
+margin_bottom = 128.0
+
+[node name="5" parent="grid" instance=ExtResource( 5 )]
+
+margin_top = 148.0
+margin_right = 128.0
+margin_bottom = 276.0
+
+[node name="6" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 176.0
+margin_top = 148.0
+margin_right = 304.0
+margin_bottom = 276.0
+
+[node name="7" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 352.0
+margin_top = 148.0
+margin_right = 480.0
+margin_bottom = 276.0
+
+[node name="8" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 528.0
+margin_top = 148.0
+margin_right = 656.0
+margin_bottom = 276.0
+
+[node name="9" parent="grid" instance=ExtResource( 5 )]
+
+margin_top = 296.0
+margin_right = 128.0
+margin_bottom = 424.0
+
+[node name="10" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 176.0
+margin_top = 296.0
+margin_right = 304.0
+margin_bottom = 424.0
+
+[node name="11" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 352.0
+margin_top = 296.0
+margin_right = 480.0
+margin_bottom = 424.0
+
+[node name="12" parent="grid" instance=ExtResource( 5 )]
+
+margin_left = 528.0
+margin_top = 296.0
+margin_right = 656.0
+margin_bottom = 424.0
+
+[node name="bottom_buttons" type="HBoxContainer" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 141.0
+margin_top = 563.0
+margin_right = 565.0
+margin_bottom = 640.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="back_button" type="Button" parent="bottom_buttons"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 494.0
+margin_bottom = 77.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "< Back to menu"
+flat = true
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 
