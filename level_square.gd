@@ -1,6 +1,4 @@
-extends PanelContainer
-
-onready var label = get_node("label")
+extends Button
 
 func _ready():
-	label.text = get_name()
+	text = get_name()
