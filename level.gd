@@ -10,12 +10,16 @@ func _ready():
 	Game.connect("on_play_level", self, "_on_play_level")
 	Game.connect("on_pause_level", self, "_on_pause_level")
 	Game.connect("on_stop_level", self, "_on_stop_level")
+	Game.connect("on_level_completed", self, "_on_level_completed")
 	
 	Game.start_level()
 	
 	for taxi in taxis.get_children():
 		Game.register_taxi(taxi)
 		taxi.set_tilemap(self)
+
+func _on_level_completed():
+	SceneSwitcher.goto_scene(from_scene_name)
 
 func _on_play_level():
 	for taxi in taxis.get_children():

@@ -16,6 +16,7 @@ signal on_taxi_registered(taxi)
 signal on_taxi_selected(tid)
 signal on_taxi_success(taxi)
 signal on_taxi_failure(taxi)
+signal on_level_completed
 
 signal on_play_level
 signal on_pause_level
@@ -67,6 +68,8 @@ func taxi_reached_destination(taxi):
 		taxis[taxi.taxi_id] = null
 		dead_taxis[taxi.taxi_id] = taxi
 		emit_signal("on_taxi_success", taxi)
+	if taxis_done == get_taxi_count():
+		emit_signal("on_level_completed")
 
 func taxi_got_exploded(taxi):
 	if not dead_taxis.has(taxi.taxi_id):
