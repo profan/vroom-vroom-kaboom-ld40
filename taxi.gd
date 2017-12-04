@@ -60,7 +60,6 @@ func _ready():
 	on_stop()
 
 func _label_input(ev):
-	print("Y")
 	if ev is InputEventMouseButton:
 		if ev.pressed and ev.button_index == 1:
 			Game.scroll_to_taxi_id(taxi_id)
@@ -71,7 +70,8 @@ func type():
 
 func _on_area_enter(a):
 	if a.type() == "Taxi": # BANG
-		pass
+		Game.taxi_reached_destination(self)
+		Game.taxi_reached_destination(a)
 	elif a.type() == "Dropoff":
 		if str(a.dropoff_id()) == get_name():
 			Game.taxi_reached_destination(self)
