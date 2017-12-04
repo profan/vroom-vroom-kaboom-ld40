@@ -68,7 +68,6 @@ func _on_area_enter(a):
 	elif a.type() == "Dropoff":
 		if str(a.dropoff_id()) == get_name():
 			Game.taxi_reached_destination(self)
-			queue_free()
 	
 func _on_area_exit(a):
 	pass

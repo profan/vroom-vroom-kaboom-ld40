@@ -14,7 +14,7 @@ enum State {
 
 signal on_taxi_registered(taxi)
 signal on_taxi_selected(tid)
-signal on_taxi_success(tid)
+signal on_taxi_success(taxi)
 
 signal on_play_level
 signal on_pause_level
@@ -26,6 +26,9 @@ var taxis
 var taxis_done
 var taxis_dead
 var current_time
+
+# keep old ones here
+var dead_taxis
 
 var current_state
 
@@ -42,6 +45,7 @@ func start_level():
 	taxis_done = 0
 	taxis_dead = 0
 	current_time = 0
+	dead_taxis = {}
 
 func register_taxi(taxi):
 	taxis[taxi.taxi_id] = taxi
@@ -50,7 +54,8 @@ func register_taxi(taxi):
 func taxi_reached_destination(taxi):
 	taxis_done += 1
 	taxis[taxi.taxi_id] = null
-	emit_signal("on_taxi_success", taxi.taxi_id)
+	dead_taxis[taxi.taxi_id] = taxi
+	emit_signal("on_taxi_success", taxi)
 
 func select_taxi(tid):
 	emit_signal("on_taxi_selected", tid)
@@ -67,16 +72,30 @@ func get_taxi_dead_count():
 func toggle_labels(v):
 	emit_signal("on_toggle_labels", v)
 
+# taxi restoration yes
+func restore_taxis(scene):
+	for tid in dead_taxis:
+		scene.add_child(dead_taxis[tid])
+	dead_taxis.clear()
+
 # control flow
 func run_level():
-	emit_signal("on_play_level")
-	set_process(true)
+	if current_state != State.RUNNING:
+		current_state = State.RUNNING
+		emit_signal("on_play_level")
+		set_process(true)
 
 func pause_level():
-	emit_signal("on_pause_level")
-	set_process(false)
+	if current_state != State.PAUSED:
+		current_state = State.PAUSED
+		emit_signal("on_pause_level")
+		set_process(false)
 
 func stop_level():
-	emit_signal("on_stop_level")
-	set_process(false)
-	current_time = 0
+	if current_state != State.STOPPED:
+		current_state = State.STOPPED
+		emit_signal("on_stop_level")
+		set_process(false)
+		current_time = 0
+		taxis_dead = 0
+		taxis_done = 0

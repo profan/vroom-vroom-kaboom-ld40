@@ -22,6 +22,7 @@ func _on_pause_level():
 		taxi.on_pause()
 
 func _on_stop_level():
+	Game.restore_taxis(get_node("taxis"))
 	for taxi in taxis.get_children():
 		taxi.on_stop()
 
