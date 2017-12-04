@@ -281,5 +281,13 @@ segments = PoolVector2Array( 0, 0, 32, 0, 32, 0, 32, 32, 32, 32, 0, 32, 0, 32, 0
 19/occluder_offset = Vector2( 16, 16 )
 19/navigation_offset = Vector2( 16, 16 )
 19/shapes = [  ]
+20/name = "road_end"
+20/texture = ExtResource( 1 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 171, 71, 32, 32 )
+20/occluder_offset = Vector2( 16, 16 )
+20/navigation_offset = Vector2( 16, 16 )
+20/shapes = [  ]
 _sections_unfolded = [ "12" ]
 

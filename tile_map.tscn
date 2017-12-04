@@ -107,6 +107,14 @@ region_enabled = true
 region_rect = Rect2( 137, 36, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
+[node name="road_end" type="Sprite" parent="."]
+
+position = Vector2( 320, 127.571 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 171, 71, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
+
 [node name="house_one" type="Sprite" parent="."]
 
 position = Vector2( 320, 64 )

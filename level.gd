@@ -52,14 +52,14 @@ func tile_at_world_position(pos):
 
 func test_tile_position_movable(pos):
 	var tile = tile_map.get_cellv(pos)
-	if tile != -1 and tile >= 0 and tile <= 12:
+	if tile != -1 and ((tile >= 0 and tile <= 12) or tile == 20):
 		return true
 	else:
 		return false
 
 func test_position_movable(pos):
 	var tile = tile_at_world_position(pos)
-	if tile != -1 and tile >= 0 and tile <= 12:
+	if tile != -1 and ((tile >= 0 and tile <= 12) or tile == 20):
 		return true
 	else:
 		return false
