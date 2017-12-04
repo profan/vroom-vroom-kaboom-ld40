@@ -38,12 +38,16 @@ var pc
 # refs
 var tilemap
 
+signal on_instruction_pointer_move(new_offset)
+
 func _ready():
 	taxi_dir = direction
 	taxi_id = int(get_name())
 	taxi_pos = Vector2(position.x, position.y)
 	cur_direction = taxi_dir
-	set_physics_process(false)
+	
+	# resetto
+	on_stop()
 
 func set_tilemap(tm):
 	tilemap = tm
@@ -62,7 +66,6 @@ func on_pause():
 	set_physics_process(false)
 
 func on_stop():
-	#sprite.rotation_deg = 0
 	cur_direction = taxi_dir
 	cur_move_delta = _direction_to_delta(cur_direction)
 	set_physics_process(false)
@@ -136,10 +139,10 @@ func _interpret():
 	if instructions == null: return current_move
 	if instructions.length() != 0 and pc < instructions.length():
 		var cur_instr = instructions[pc]
-		print(cur_instr)
 		if cur_instr == "^": # continue straight
 			if _are_we_intersection():
 				pc += 1
+				emit_signal("on_instruction_pointer_move", pc)
 			new_move.x = current_move.x
 			new_move.y = current_move.y
 		elif cur_instr == "<":
@@ -151,6 +154,7 @@ func _interpret():
 				new_move.y = move_delta.y
 				cur_direction = new_dir
 				pc += 1
+				emit_signal("on_instruction_pointer_move", pc)
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
@@ -158,13 +162,13 @@ func _interpret():
 			var new_dir = _direction_turn(cur_direction, Turn.RIGHT)
 			var move_delta = _direction_to_delta(new_dir)
 			var right_move = move_delta
-			print(cur_tile_pos, cur_tile_pos + right_move)
 			if tilemap.test_tile_position_movable(cur_tile_pos + right_move):
 				print(cur_direction, ", ", new_dir)
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
 				cur_direction = new_dir
 				pc += 1
+				emit_signal("on_instruction_pointer_move", pc)
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
@@ -177,6 +181,7 @@ func _interpret():
 				new_move.y = move_delta.y
 				cur_direction = new_dir
 				pc += 1
+				emit_signal("on_instruction_pointer_move", pc)
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
@@ -190,7 +195,6 @@ var mid_tile_pos = Vector2()
 
 func _physics_process(delta):
 	
-	# sprite.rotation_deg = 0
 	sprite.rotation_deg = _get_rotation_angle()
 	cur_tile_pos = tilemap.world_to_tile_position(position / 2)
 	

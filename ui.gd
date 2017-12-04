@@ -34,6 +34,9 @@ func _ready():
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
 	set_process(false)
+	
+	# initially off
+	pause_btn.disabled = true
 
 func get_track(id):
 	var found_track
@@ -71,12 +74,15 @@ func _on_uturn():
 func _on_play():
 	Game.run_level()
 	set_process(true)
+	pause_btn.disabled = false
 
 func _on_pause():
 	Game.pause_level()
 	set_process(false)
+	pause_btn.disabled = true
 
 func _on_stop():
+	pause_btn.disabled = true
 	time_label.text = "0.00s"
 	Game.stop_level()
 	set_process(false)
