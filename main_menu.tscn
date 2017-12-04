@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://raw/vroomvroomkaboom.png" type="Texture" id=1]
+[ext_resource path="res://ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://main_menu.gd" type="Script" id=2]
+[ext_resource path="res://raw/vroomvroomkaboom.png" type="Texture" id=3]
+[ext_resource path="res://title_font.tres" type="DynamicFont" id=4]
 
 [node name="main_menu" type="Control"]
 
@@ -13,6 +16,9 @@ rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
 
 [node name="background" type="TextureRect" parent="."]
 
@@ -20,14 +26,69 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 960.0
+margin_bottom = 720.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 1 )
-stretch_mode = 0
+texture = ExtResource( 3 )
+expand = true
+_sections_unfolded = [ "Rect" ]
+
+[node name="start_game_btn" type="Button" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 246.0
+margin_right = 355.0
+margin_bottom = 323.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start Game"
+flat = true
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="quit_game_btn" type="Button" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 322.0
+margin_right = 322.0
+margin_bottom = 399.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.0078125, 0.0078125, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit Game"
+flat = true
+_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 
