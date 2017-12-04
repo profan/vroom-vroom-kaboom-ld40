@@ -14,6 +14,7 @@ enum Direction {
 
 var taxi_id
 var taxi_dir
+var taxi_pos
 
 # vm stuff
 var instructions
@@ -25,11 +26,20 @@ var tilemap
 func _ready():
 	taxi_id = 1
 	taxi_dir = direction
-	Game.call_deferred("register_taxi", self)
+	taxi_pos = Vector2(position.x, position.y)
 	set_physics_process(true)
 
 func set_tilemap(tm):
 	tilemap = tm
+
+func on_play():
+	pass
+
+func on_pause():
+	pass
+
+func on_stop():
+	position = taxi_pos
 
 func _physics_process(delta):
 	

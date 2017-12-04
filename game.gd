@@ -14,6 +14,7 @@ enum State {
 
 signal on_taxi_registered(taxi)
 signal on_taxi_selected(tid)
+
 signal on_play_level
 signal on_pause_level
 signal on_stop_level
@@ -46,11 +47,14 @@ func get_taxi_count():
 
 # control flow
 func run_level():
+	emit_signal("on_play_level")
 	set_process(true)
 
 func pause_level():
+	emit_signal("on_pause_level")
 	set_process(false)
 
 func stop_level():
+	emit_signal("on_stop_level")
 	set_process(false)
 	current_time = 0
