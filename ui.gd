@@ -55,6 +55,9 @@ func _ready():
 	# initially off
 	pause_btn.disabled = true
 	stop_btn.disabled = true
+	
+	# once on start yes
+	call_deferred("_update_labels")
 
 func _on_show_labels_checkbox_toggled(v):
 	Game.toggle_labels(v)

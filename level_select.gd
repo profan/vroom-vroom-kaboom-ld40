@@ -8,4 +8,4 @@ func _ready():
 	back_btn.connect("pressed", self, "_on_back_press")
 
 func _on_back_press():
-	SceneSwitcher.goto_scene(from_scene_name)
+	SceneSwitcher.goto_scene("res://main_menu.tscn")

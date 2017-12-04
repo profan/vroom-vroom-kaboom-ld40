@@ -11,6 +11,8 @@ func _ready():
 	Game.connect("on_pause_level", self, "_on_pause_level")
 	Game.connect("on_stop_level", self, "_on_stop_level")
 	
+	Game.start_level()
+	
 	for taxi in taxis.get_children():
 		Game.register_taxi(taxi)
 		taxi.set_tilemap(self)

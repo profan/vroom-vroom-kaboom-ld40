@@ -36,7 +36,6 @@ var ui_has_focus
 
 func _ready():
 	set_process(false)
-	start_level()
 
 func _process(delta):
 	current_time += delta
