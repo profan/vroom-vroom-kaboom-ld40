@@ -39,8 +39,9 @@ var dead_taxis
 var current_state
 var ui_has_focus
 
-func _ready():
-	
+# platform-related issue fix
+func _unbodge_input():
+		
 	var new_event
 	var actions = InputMap.get_action_list("do_drag")
 	for event in actions:
@@ -52,7 +53,9 @@ func _ready():
 	InputMap.erase_action("do_drag")
 	InputMap.add_action("do_drag")
 	InputMap.action_add_event("do_drag", new_event)
-		
+
+func _ready():
+	_unbodge_input()
 	completed_levels = {}
 	set_process(false)
 
@@ -60,7 +63,6 @@ func _process(delta):
 	current_time += delta
 	
 # save/load
-
 func load_game():
 	pass
 
