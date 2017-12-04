@@ -21,7 +21,7 @@ position = Vector2( 69, 288 )
 
 [node name="3" parent="taxis" instance=ExtResource( 2 )]
 
-position = Vector2( 923, 246 )
+position = Vector2( 928, 242 )
 direction = 1
 
 [node name="4" parent="taxis" instance=ExtResource( 2 )]
