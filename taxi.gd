@@ -223,10 +223,7 @@ func _interpret():
 		else:
 			return current_move
 	
-	return new_move
-	
-var ctp_pos = Vector2()
-var mid_tile_pos = Vector2()
+	return new_movea
 
 func _physics_process(delta):
 	
@@ -245,11 +242,8 @@ func _physics_process(delta):
 	# now get instruction and move yes, else keep using last delta
 	if cur_tile_pos.x != last_tile_pos.x or cur_tile_pos.y != last_tile_pos.y:
 		
-		# debug
-		ctp_pos = ctp_w
-		mid_tile_pos = (position - Vector2(16, 16)) / 2
 		var mid_dist = ctp_w.distance_to((position - Vector2(16, 16)) / 2)
-
+		
 		if mid_dist < 12:
 			cur_move_delta = _interpret()
 			last_tile_pos.x = cur_tile_pos.x
@@ -266,7 +260,3 @@ func _physics_process(delta):
 	var actual_move = cur_move_delta * MOVEMENT_TEST
 	if tilemap.test_position_movable((position + actual_move) / 2):
 		position += cur_move_delta * (MOVEMENT_SPEED * delta)
-
-func _draw():
-	draw_rect(Rect2(ctp_pos.x - 16, ctp_pos.y - 16, 32, 32), Color(0x428bca))
-	draw_rect(Rect2(cur_tile_pos.x - 16, cur_tile_pos.y - 16, 32, 32), Color(0xffa500))

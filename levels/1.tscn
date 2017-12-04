@@ -9,7 +9,7 @@
 
 [node name="camera" parent="."]
 
-position = Vector2( 161, 94 )
+position = Vector2( 257, 270 )
 
 [node name="1" parent="taxis" instance=ExtResource( 2 )]
 
