@@ -92,7 +92,7 @@ func _on_win_back_button_pressed():
 	SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
 
 func _on_to_menu_button_pressed():
-	SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
+	back_dialog.popup_centered()
 
 func _on_level_completed():
 	win_taxi_rating_label.text = str(Game.get_taxi_count() - Game.get_taxi_dead_count())
