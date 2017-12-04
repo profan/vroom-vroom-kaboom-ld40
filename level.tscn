@@ -65,28 +65,28 @@ script = ExtResource( 4 )
 
 position = Vector2( 32, 224 )
 scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Offset", "Pickable", "Transform", "collision" ]
 direction = 0
 
 [node name="2" parent="taxis" instance=ExtResource( 5 )]
 
 position = Vector2( 32, 334 )
 scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Offset", "Pickable", "Transform", "collision" ]
 direction = 1
 
 [node name="3" parent="taxis" instance=ExtResource( 5 )]
 
 position = Vector2( 352, 182 )
 scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Offset", "Pickable", "Transform", "collision" ]
 direction = 1
 
 [node name="4" parent="taxis" instance=ExtResource( 5 )]
 
 position = Vector2( 480, 305 )
 scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Offset", "Pickable", "Transform", "collision" ]
 direction = 0
 
 [node name="destinations" type="Node" parent="."]
