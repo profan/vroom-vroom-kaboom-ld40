@@ -42,6 +42,7 @@ func _ready():
 	
 	# initially off
 	pause_btn.disabled = true
+	stop_btn.disabled = true
 
 func _on_show_labels_checkbox_toggled(v):
 	Game.toggle_labels(v)
@@ -83,13 +84,18 @@ func _on_play():
 	Game.run_level()
 	set_process(true)
 	pause_btn.disabled = false
+	play_btn.disabled = true
+	stop_btn.disabled = false
 
 func _on_pause():
 	Game.pause_level()
 	set_process(false)
 	pause_btn.disabled = true
+	play_btn.disabled = false
 
 func _on_stop():
+	play_btn.disabled = false
+	stop_btn.disabled = true
 	pause_btn.disabled = true
 	time_label.text = "0.00s"
 	Game.stop_level()
