@@ -64,13 +64,6 @@ scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
 direction = 0
 
-[node name="2" parent="taxis" instance=ExtResource( 4 )]
-
-position = Vector2( 32, 352 )
-scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
-direction = 1
-
 [node name="destinations" type="Node" parent="."]
 
 [node name="1" type="Node2D" parent="destinations"]

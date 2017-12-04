@@ -44,6 +44,13 @@ func tile_at_world_position(pos):
 	var tile_pos = tile_map.world_to_map(pos)
 	return tile_map.get_cellv(tile_pos)
 
+func test_tile_position_movable(pos):
+	var tile = tile_map.get_cellv(pos)
+	if tile != -1 and tile >= 0 and tile <= 12:
+		return true
+	else:
+		return false
+
 func test_position_movable(pos):
 	var tile = tile_at_world_position(pos)
 	if tile != -1 and tile >= 0 and tile <= 12:

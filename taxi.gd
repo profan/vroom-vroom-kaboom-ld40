@@ -62,11 +62,11 @@ func on_pause():
 	set_physics_process(false)
 
 func on_stop():
-	sprite.rotation_deg = 0
+	#sprite.rotation_deg = 0
 	cur_direction = taxi_dir
 	cur_move_delta = _direction_to_delta(cur_direction)
 	set_physics_process(false)
-	rotation_deg = _get_rotation_angle()
+	sprite.rotation_deg = _get_rotation_angle()
 	position = taxi_pos
 	pc = 0
 
@@ -120,20 +120,33 @@ func _direction_turn(dir, turn):
 		elif turn == Turn.RIGHT: 	return Direction.DOWN
 		elif turn == Turn.UTURN: 	return Direction.LEFT
 
+func _are_we_intersection():
+	var left_tpos = cur_tile_pos + _direction_to_delta(_direction_turn(cur_direction, Turn.LEFT))
+	var right_tpos = cur_tile_pos + _direction_to_delta(_direction_turn(cur_direction, Turn.RIGHT))
+	if tilemap.test_tile_position_movable(left_tpos) or tilemap.test_tile_position_movable(right_tpos):
+		return true
+	else:
+		return false
+
 func _interpret():
 	
 	var new_move = Vector2()
 	var current_move = _direction_to_delta(cur_direction)
 	
 	if instructions == null: return current_move
-	if instructions.length() != 0 and pc < instructions.length() - 1:
+	if instructions.length() != 0 and pc < instructions.length():
 		var cur_instr = instructions[pc]
 		print(cur_instr)
-		if cur_instr == "<":
+		if cur_instr == "^": # continue straight
+			if _are_we_intersection():
+				pc += 1
+			new_move.x = current_move.x
+			new_move.y = current_move.y
+		elif cur_instr == "<":
 			var new_dir = _direction_turn(cur_direction, Turn.LEFT)
 			var move_delta = _direction_to_delta(new_dir)
-			var left_move = move_delta * MOVEMENT_TEST
-			if tilemap.test_position_movable((position + left_move) / 2):
+			var left_move = move_delta
+			if tilemap.test_tile_position_movable(cur_tile_pos + left_move):
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
 				cur_direction = new_dir
@@ -144,8 +157,9 @@ func _interpret():
 		elif cur_instr == ">":
 			var new_dir = _direction_turn(cur_direction, Turn.RIGHT)
 			var move_delta = _direction_to_delta(new_dir)
-			var right_move = move_delta * MOVEMENT_TEST
-			if tilemap.test_position_movable((position + right_move) / 2):
+			var right_move = move_delta
+			print(cur_tile_pos, cur_tile_pos + right_move)
+			if tilemap.test_tile_position_movable(cur_tile_pos + right_move):
 				print(cur_direction, ", ", new_dir)
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
@@ -157,8 +171,8 @@ func _interpret():
 		elif cur_instr == "u":
 			var new_dir = _direction_turn(cur_direction, Turn.UTURN)
 			var move_delta = _direction_to_delta(new_dir)
-			var uturn_move = move_delta * MOVEMENT_TEST
-			if tilemap.test_position_movable((position + uturn_move) / 2):
+			var uturn_move = move_delta
+			if tilemap.test_position_movable(cur_tile_pos + uturn_move):
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
 				cur_direction = new_dir
@@ -170,11 +184,14 @@ func _interpret():
 			return current_move
 	
 	return new_move
+	
+var ctp_pos = Vector2()
+var mid_tile_pos = Vector2()
 
 func _physics_process(delta):
 	
-	sprite.rotation_deg = 0
-	rotation_deg = _get_rotation_angle()
+	# sprite.rotation_deg = 0
+	sprite.rotation_deg = _get_rotation_angle()
 	cur_tile_pos = tilemap.world_to_tile_position(position / 2)
 	
 	var ctp_w = tilemap.tile_to_world_position(cur_tile_pos)
@@ -186,6 +203,11 @@ func _physics_process(delta):
 	
 	# now get instruction and move yes, else keep using last delta
 	if cur_tile_pos.x != last_tile_pos.x or cur_tile_pos.y != last_tile_pos.y:
+		
+		# debug
+		ctp_pos = ctp_w
+		mid_tile_pos = (position - Vector2(16, 16)) / 2
+		
 		var mid_dist = ctp_w.distance_to((position - Vector2(16, 16)) / 2)
 		print(cur_tile_pos, ", ", mid_dist)
 		if mid_dist < 12:
@@ -205,3 +227,7 @@ func _physics_process(delta):
 	var actual_move = cur_move_delta * MOVEMENT_TEST
 	if tilemap.test_position_movable((position + actual_move) / 2):
 		position += cur_move_delta * (MOVEMENT_SPEED * delta)
+
+func _draw():
+	draw_rect(Rect2(ctp_pos.x - 16, ctp_pos.y - 16, 32, 32), Color(0x428bca))
+	draw_rect(Rect2(cur_tile_pos.x - 16, cur_tile_pos.y - 16, 32, 32), Color(0xffa500))
