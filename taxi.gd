@@ -70,8 +70,8 @@ func type():
 
 func _on_area_enter(a):
 	if a.type() == "Taxi": # BANG
-		Game.taxi_reached_destination(self)
-		Game.taxi_reached_destination(a)
+		Game.taxi_got_exploded(self)
+		Game.taxi_got_exploded(a)
 	elif a.type() == "Dropoff":
 		if str(a.dropoff_id()) == get_name():
 			Game.taxi_reached_destination(self)
