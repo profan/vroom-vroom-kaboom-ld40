@@ -46,7 +46,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 894.0
+margin_right = 977.0
 margin_bottom = 45.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -209,7 +209,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 699.0
-margin_right = 890.0
+margin_right = 815.0
 margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -222,10 +222,32 @@ pressed = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Show Labels"
+text = "Labels"
 flat = false
 align = 0
 _sections_unfolded = [ "Grow Direction", "Theme" ]
+
+[node name="to_menu_btn" type="Button" parent="top_container/time_container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 819.0
+margin_right = 898.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "| X |"
+flat = false
+align = 0
 
 [node name="capture_zoom" type="Control" parent="."]
 

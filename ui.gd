@@ -26,6 +26,9 @@ onready var score_alive_label = get_node("top_container/time_container/score_ali
 onready var win_taxi_rating_label = get_node("win_dialog/win_panel/items/taxi_rating/taxi_rating_value")
 onready var win_time_rating_label = get_node("win_dialog/win_panel/items/time_rating/time_rating_value")
 
+# top bar back button
+onready var to_menu_btn = get_node("top_container/time_container/to_menu_btn")
+
 # win back button
 onready var win_back_button = get_node("win_dialog/win_panel/items/back_btn")
 
@@ -70,6 +73,7 @@ func _ready():
 	# set up back dialog
 	back_dialog.connect("confirmed", self, "_on_back_dialog_confirmed")
 	win_back_button.connect("pressed", self, "_on_win_back_button_pressed")
+	to_menu_btn.connect("pressed", self, "_on_to_menu_button_pressed")
 	
 	# initial level name level
 	level_label.text = "| %s |" % SceneSwitcher.current_scene.get_name()
@@ -87,7 +91,12 @@ func _on_back_dialog_confirmed():
 func _on_win_back_button_pressed():
 	SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
 
+func _on_to_menu_button_pressed():
+	SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
+
 func _on_level_completed():
+	win_taxi_rating_label.text = str(Game.get_taxi_count() - Game.get_taxi_dead_count())
+	win_time_rating_label.text = "%.2fs" % Game.current_time
 	win_dialog.popup()
 
 func _on_show_labels_checkbox_toggled(v):
