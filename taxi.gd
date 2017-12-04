@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 export(int, "UP", "DOWN", "LEFT", "RIGHT") var direction;
 
-var MOVEMENT_SPEED = 40 # pixels per second i guess, half a tile?
+var MOVEMENT_SPEED = 128 # pixels per second i guess, half a tile?
+var MOVEMENT_TEST = 40
 
 enum Direction {
 	UP,
@@ -47,6 +48,6 @@ func _physics_process(delta):
 		move_delta.x = 1
 		move_delta.y = 0
 	
-	var actual_move = move_delta * MOVEMENT_SPEED
+	var actual_move = move_delta * MOVEMENT_TEST
 	if tilemap.test_position_movable((position + actual_move) / 2):
 		position += move_delta * (MOVEMENT_SPEED * delta)
