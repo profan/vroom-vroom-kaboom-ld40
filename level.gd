@@ -19,7 +19,7 @@ func _ready():
 		taxi.set_tilemap(self)
 
 func _on_level_completed():
-	Game.call_deferred("stop_level")
+	Game.call_deferred("pause_level")
 	pass
 	# SceneSwitcher.goto_scene(from_scene_name)
 

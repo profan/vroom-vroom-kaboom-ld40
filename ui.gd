@@ -4,6 +4,7 @@ extends Control
 onready var top_container = get_node("top_container")
 onready var capture_zoom = get_node("capture_zoom")
 onready var instr_container = get_node("instr_container")
+onready var win_dialog = get_node("win_dialog")
 
 # add instructions
 onready var turn_left_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_left_btn")
@@ -51,6 +52,7 @@ func _ready():
 	Game.connect("on_play_level", self, "_on_play")
 	Game.connect("on_pause_level", self, "_on_pause")
 	Game.connect("on_stop_level", self, "_on_stop")
+	Game.connect("on_level_completed", self, "_on_level_completed")
 	
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
@@ -62,6 +64,9 @@ func _ready():
 	
 	# once on start yes
 	call_deferred("_update_labels")
+
+func _on_level_completed():
+	win_dialog.popup()
 
 func _on_show_labels_checkbox_toggled(v):
 	Game.toggle_labels(v)
