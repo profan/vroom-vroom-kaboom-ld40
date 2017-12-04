@@ -5,6 +5,7 @@ onready var top_container = get_node("top_container")
 onready var capture_zoom = get_node("capture_zoom")
 onready var instr_container = get_node("instr_container")
 onready var win_dialog = get_node("win_dialog")
+onready var back_dialog = get_node("back_dialog")
 
 # add instructions
 onready var turn_left_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_left_btn")
@@ -59,6 +60,9 @@ func _ready():
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
 	set_process(false)
 	
+	# set up back dialog
+	back_dialog.connect("confirmed", self, "_on_back_dialog_confirmed")
+	
 	# initial level name level
 	level_label.text = "| %s |" % SceneSwitcher.current_scene.get_name()
 	
@@ -68,6 +72,9 @@ func _ready():
 	
 	# once on start yes
 	call_deferred("_update_labels")
+	
+func _on_back_dialog_confirmed():
+	SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
 
 func _on_level_completed():
 	win_dialog.popup()
@@ -84,7 +91,7 @@ func get_track(id):
 
 func _input(event):
 	if event.is_action("back_to_menu"):
-		SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
+		back_dialog.popup_centered()
 
 func _process(delta):
 	_update_labels()
