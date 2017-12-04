@@ -189,7 +189,6 @@ func _interpret():
 			var move_delta = _direction_to_delta(new_dir)
 			var right_move = move_delta
 			if tilemap.test_tile_position_movable(cur_tile_pos + right_move):
-				print(cur_direction, ", ", new_dir)
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
 				cur_direction = new_dir
