@@ -57,7 +57,7 @@ func _process(delta):
 	_update_labels()
 
 func _update_labels():
-	var taxis_done = 0
+	var taxis_done = Game.get_taxi_done_count()
 	var taxis_alive_percentage = (Game.get_taxi_count() / Game.get_taxi_count()) * 100
 	time_label.text = "%.2fs" % Game.current_time
 	score_taxis_label.text = "%s/%s" % [taxis_done, Game.get_taxi_count()]

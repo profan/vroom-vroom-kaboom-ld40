@@ -10,12 +10,17 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 24 )
 
-[node name="taxi" type="KinematicBody2D"]
+[node name="taxi" type="Area2D"]
 
 input_pickable = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
 collision_layer = 3
 collision_mask = 3
-collision/safe_margin = 0.08
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Offset", "collision" ]
 direction = 3

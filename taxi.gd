@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 export(int, "UP", "DOWN", "LEFT", "RIGHT") var direction;
 
@@ -52,8 +52,26 @@ func _ready():
 	label.text = get_name()
 	Game.connect("on_toggle_labels", self, "_on_toggle_labels")
 	
+	# collision stuff
+	connect("area_entered", self, "_on_area_enter")
+	connect("area_exited", self, "_on_area_exit")
+	
 	# resetto
 	on_stop()
+	
+func type():
+	return "Taxi"
+
+func _on_area_enter(a):
+	if a.type() == "Taxi": # BANG
+		pass
+	elif a.type() == "Dropoff":
+		if str(a.dropoff_id()) == get_name():
+			Game.taxi_reached_destination(self)
+			queue_free()
+	
+func _on_area_exit(a):
+	pass
 
 func _on_toggle_labels(v):
 	label_panel.visible = v
