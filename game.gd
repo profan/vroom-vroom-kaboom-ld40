@@ -37,6 +37,9 @@ func start_level():
 func register_taxi(taxi):
 	taxis[taxi.taxi_id] = taxi
 	emit_signal("on_taxi_registered", taxi)
+
+func select_taxi(tid):
+	emit_signal("on_taxi_selected", tid)
 	
 func get_taxi_count():
 	return taxis.size()

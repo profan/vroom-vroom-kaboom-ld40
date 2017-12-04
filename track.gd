@@ -19,7 +19,7 @@ func add_instruction(instr):
 	instr_list.add_item(instr)
 
 func _on_id_press():
-	Game.emit_signal("on_taxi_selected", int(id_btn.text))
+	Game.select_taxi(int(id_btn.text))
 
 func _on_nothing_selected():
 	selected_index = -1
