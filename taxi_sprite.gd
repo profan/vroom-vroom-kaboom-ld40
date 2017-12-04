@@ -17,6 +17,8 @@ func _update():
 func _ready():
 	if Engine.is_editor_hint():
 		set_process(true)
+	else:
+		set_process(false)
 
 func _process(delta):
 	_update()
