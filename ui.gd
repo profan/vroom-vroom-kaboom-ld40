@@ -38,7 +38,7 @@ func _process(delta):
 func _update_labels():
 	var taxis_done = 0
 	var taxis_alive_percentage = (Game.get_taxi_count() / 1) * 100
-	time_label.text = "%.2f s" % Game.current_time
+	time_label.text = "%.2fs" % Game.current_time
 	score_taxis_label.text = "%s/%s" % [taxis_done, Game.get_taxi_count()]
 	score_alive_label.text = "%s %%" % taxis_alive_percentage
 
@@ -63,6 +63,6 @@ func _on_pause():
 	set_process(false)
 
 func _on_stop():
-	time_label.text = "0"
+	time_label.text = "0.00s"
 	Game.stop_level()
 	set_process(false)
