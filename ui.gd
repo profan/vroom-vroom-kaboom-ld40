@@ -3,7 +3,6 @@ extends Control
 # add instructions
 onready var turn_left_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_left_btn")
 onready var turn_right_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_right_btn")
-onready var uturn_btn = get_node("instr_container/instr_panels/instr_panel/instructions/uturn_btn")
 
 # control game flow
 onready var play_btn = get_node("instr_container/instr_panels/instr_panel/instructions/play_controls/play_btn")
@@ -28,7 +27,6 @@ func _ready():
 	
 	turn_left_btn.connect("pressed", self, "_on_turn_left")
 	turn_right_btn.connect("pressed", self, "_on_turn_right")
-	uturn_btn.connect("pressed", self, "_on_uturn")
 	
 	play_btn.connect("pressed", self, "_on_play")
 	pause_btn.connect("pressed", self, "_on_pause")
@@ -75,9 +73,6 @@ func _on_turn_left():
 	pass
 
 func _on_turn_right():
-	pass
-
-func _on_uturn():
 	pass
 	
 func _on_play():
