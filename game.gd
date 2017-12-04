@@ -80,22 +80,19 @@ func restore_taxis(scene):
 
 # control flow
 func run_level():
-	if current_state != State.RUNNING:
-		current_state = State.RUNNING
-		emit_signal("on_play_level")
-		set_process(true)
+	current_state = State.RUNNING
+	emit_signal("on_play_level")
+	set_process(true)
 
 func pause_level():
-	if current_state != State.PAUSED:
-		current_state = State.PAUSED
-		emit_signal("on_pause_level")
-		set_process(false)
+	current_state = State.PAUSED
+	emit_signal("on_pause_level")
+	set_process(false)
 
 func stop_level():
-	if current_state != State.STOPPED:
-		current_state = State.STOPPED
-		emit_signal("on_stop_level")
-		set_process(false)
-		current_time = 0
-		taxis_dead = 0
-		taxis_done = 0
+	current_state = State.STOPPED
+	emit_signal("on_stop_level")
+	set_process(false)
+	current_time = 0
+	taxis_dead = 0
+	taxis_done = 0

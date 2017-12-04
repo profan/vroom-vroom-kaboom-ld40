@@ -93,4 +93,5 @@ func _on_stop():
 	pause_btn.disabled = true
 	time_label.text = "0.00s"
 	Game.stop_level()
+	_update_labels()
 	set_process(false)
