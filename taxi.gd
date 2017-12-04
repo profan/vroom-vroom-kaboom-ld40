@@ -1,8 +1,8 @@
-extends Node2D
+extends KinematicBody2D
 
 export(int, "UP", "DOWN", "LEFT", "RIGHT") var direction;
 
-onready var body = get_node("body")
+var MOVEMENT_SPEED = 40 # pixels per second i guess, half a tile?
 
 enum Direction {
 	UP,
@@ -18,10 +18,35 @@ var taxi_dir
 var instructions
 var pc = 0
 
+# refs
+var tilemap
+
 func _ready():
 	taxi_id = 1
 	taxi_dir = direction
 	Game.call_deferred("register_taxi", self)
+	set_physics_process(true)
 
-func _process(delta):
-	pass
+func set_tilemap(tm):
+	tilemap = tm
+
+func _physics_process(delta):
+	
+	var move_delta = Vector2()
+	
+	if taxi_dir == Direction.UP:
+		move_delta.x = 0
+		move_delta.y = -1
+	elif taxi_dir == Direction.DOWN:
+		move_delta.x = 0
+		move_delta.y = 1
+	elif taxi_dir == Direction.LEFT:
+		move_delta.x = -1
+		move_delta.y = 0
+	elif taxi_dir == Direction.RIGHT:
+		move_delta.x = 1
+		move_delta.y = 0
+	
+	var actual_move = move_delta * MOVEMENT_SPEED
+	if tilemap.test_position_movable((position + actual_move) / 2):
+		position += move_delta * (MOVEMENT_SPEED * delta)

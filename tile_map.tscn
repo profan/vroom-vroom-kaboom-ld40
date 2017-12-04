@@ -347,24 +347,6 @@ region_enabled = true
 region_rect = Rect2( 171, 36, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
-[node name="body13" type="StaticBody2D" parent="house_one"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="house_one/body13"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="grass_mid" type="Sprite" parent="."]
 
 position = Vector2( 384, 64 )
@@ -372,24 +354,6 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 205, 36, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
-
-[node name="body14" type="StaticBody2D" parent="grass_mid"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_mid/body14"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="grass_left" type="Sprite" parent="."]
 
@@ -399,24 +363,6 @@ region_enabled = true
 region_rect = Rect2( 1, 71, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
-[node name="body15" type="StaticBody2D" parent="grass_left"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_left/body15"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="grass_right" type="Sprite" parent="."]
 
 position = Vector2( 64, 128 )
@@ -424,24 +370,6 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 35, 71, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
-
-[node name="body16" type="StaticBody2D" parent="grass_right"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_right/body16"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="grass_corner" type="Sprite" parent="."]
 
@@ -451,24 +379,6 @@ region_enabled = true
 region_rect = Rect2( 69, 71, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
-[node name="body17" type="StaticBody2D" parent="grass_corner"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_corner/body17"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="grass_t" type="Sprite" parent="."]
 
 position = Vector2( 192, 127.571 )
@@ -477,24 +387,6 @@ region_enabled = true
 region_rect = Rect2( 103, 71, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
 
-[node name="body18" type="StaticBody2D" parent="grass_t"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_t/body18"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="grass_c" type="Sprite" parent="."]
 
 position = Vector2( 256, 127.571 )
@@ -502,23 +394,5 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 137, 71, 32, 32 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Z" ]
-
-[node name="body19" type="StaticBody2D" parent="grass_c"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="collision" type="CollisionPolygon2D" parent="grass_c/body19"]
-
-position = Vector2( -16, -16 )
-build_mode = 1
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-_sections_unfolded = [ "Transform" ]
 
 
