@@ -86,28 +86,28 @@ direction = 0
 
 [node name="1" parent="destinations" instance=ExtResource( 6 )]
 
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.078125, 1, 0, 1 )
 position = Vector2( 480, 194 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="2" parent="destinations" instance=ExtResource( 6 )]
 
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.078125, 1, 0, 1 )
 position = Vector2( 480, 353 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="3" parent="destinations" instance=ExtResource( 6 )]
 
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.078125, 1, 0, 1 )
 position = Vector2( 288, 416 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="4" parent="destinations" instance=ExtResource( 6 )]
 
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.078125, 1, 0, 1 )
 position = Vector2( 194, 288 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]

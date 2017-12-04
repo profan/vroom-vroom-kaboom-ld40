@@ -21,7 +21,7 @@ func _input(event):
 			dragging = true
 			drag_start.x = event.position.x
 			drag_start.y = event.position.y
-		elif !event.is_action_pressed("do_drag"):
+		elif event.is_action_released("do_drag"):
 			drag_start.x = 0
 			drag_start.y = 0
 			dragging = false
