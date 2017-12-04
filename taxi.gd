@@ -223,7 +223,7 @@ func _interpret():
 		else:
 			return current_move
 	
-	return new_movea
+	return new_move
 
 func _physics_process(delta):
 	
