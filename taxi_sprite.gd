@@ -13,9 +13,11 @@ func _update():
 		rotation_deg = 180
 	elif dir == Direction.RIGHT:
 		rotation_deg = 0
+	set_process(false)
 
 func _ready():
-	set_process(true)
+	if Engine.is_editor_hint():
+		set_process(true)
 
 func _process(delta):
 	_update()
