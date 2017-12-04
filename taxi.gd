@@ -17,7 +17,7 @@ enum Direction {
 enum Turn {
 	LEFT,
 	RIGHT,
-	UTURN	
+	UTURN
 }
 
 # initial taxi state
@@ -176,7 +176,13 @@ func _physics_process(delta):
 	sprite.rotation_deg = 0
 	rotation_deg = _get_rotation_angle()
 	cur_tile_pos = tilemap.world_to_tile_position(position / 2)
+	
 	var ctp_w = tilemap.tile_to_world_position(cur_tile_pos)
+	if cur_direction == Direction.UP:
+		ctp_w.x += 16
+	else:
+		ctp_w.x += 16
+		ctp_w.y += 16
 	
 	# now get instruction and move yes, else keep using last delta
 	if cur_tile_pos.x != last_tile_pos.x or cur_tile_pos.y != last_tile_pos.y:

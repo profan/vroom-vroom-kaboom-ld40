@@ -26,9 +26,8 @@ func _on_stop_level():
 		taxi.on_stop()
 
 func _input(event):
-	return
 	if event is InputEventMouseButton:
-		if event.button_index == 1:
+		if event.pressed and event.button_index == 1:
 			var mouse_pos = get_global_mouse_position()
 			var tile_pos = world_to_tile_position(mouse_pos / 2)
 			var tile_type = tile_at_world_position(mouse_pos / 2)
