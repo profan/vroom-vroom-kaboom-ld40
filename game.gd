@@ -40,6 +40,14 @@ func _ready():
 
 func _process(delta):
 	current_time += delta
+	
+# save/load
+
+func load_game():
+	pass
+
+func save_game():
+	pass
 
 # called from game code
 func start_level():
