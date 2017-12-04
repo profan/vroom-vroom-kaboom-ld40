@@ -94,8 +94,4 @@ modulate = Color( 0.34375, 0.6875, 0, 1 )
 position = Vector2( 673, 224 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="ui" parent="canvas"]
-
-visible = false
-
 

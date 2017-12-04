@@ -16,6 +16,7 @@ onready var pause_btn = get_node("instr_container/instr_panels/instr_panel/instr
 onready var stop_btn = get_node("instr_container/instr_panels/instr_panel/instructions/play_controls/stop_btn")
 
 # labels to update
+onready var level_label = get_node("top_container/time_container/level_label")
 onready var time_label = get_node("top_container/time_container/time_value")
 onready var score_taxis_label = get_node("top_container/time_container/score_taxis_value")
 onready var score_alive_label = get_node("top_container/time_container/score_alive_value")
@@ -57,6 +58,9 @@ func _ready():
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
 	set_process(false)
+	
+	# initial level name level
+	level_label.text = "| %s |" % SceneSwitcher.current_scene.get_name()
 	
 	# initially off
 	pause_btn.disabled = true
