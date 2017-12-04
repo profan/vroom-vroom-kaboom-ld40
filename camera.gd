@@ -17,11 +17,11 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == 3:
+		if event.is_action_pressed("do_drag"):
 			dragging = true
 			drag_start.x = event.position.x
 			drag_start.y = event.position.y
-		elif !event.pressed and event.button_index == 3:
+		elif !event.is_action_pressed("do_drag"):
 			drag_start.x = 0
 			drag_start.y = 0
 			dragging = false

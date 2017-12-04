@@ -40,6 +40,19 @@ var current_state
 var ui_has_focus
 
 func _ready():
+	
+	var new_event
+	var actions = InputMap.get_action_list("do_drag")
+	for event in actions:
+		if OS.get_name() == "HTML5" and event.button_index == 2:
+			new_event = event
+		elif event.button_index == 3:
+			new_event = event
+	
+	InputMap.erase_action("do_drag")
+	InputMap.add_action("do_drag")
+	InputMap.action_add_event("do_drag", new_event)
+		
 	completed_levels = {}
 	set_process(false)
 
