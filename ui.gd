@@ -78,7 +78,6 @@ func _update_labels():
 	var taxis_alive = Game.get_taxi_count() - Game.get_taxi_dead_count()
 	var taxis_alive_percentage
 	if taxis_alive != 0:
-		print(Game.get_taxi_count(), ", ", taxis_alive)
 		taxis_alive_percentage = (taxis_alive / float(Game.get_taxi_count())) * 100.0
 	else:
 		taxis_alive_percentage = 0
