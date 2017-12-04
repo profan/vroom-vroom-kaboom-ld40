@@ -146,6 +146,7 @@ func _interpret():
 			var move_delta = _direction_to_delta(new_dir)
 			var right_move = move_delta * MOVEMENT_TEST
 			if tilemap.test_position_movable((position + right_move) / 2):
+				print(cur_direction, ", ", new_dir)
 				new_move.x = move_delta.x
 				new_move.y = move_delta.y
 				cur_direction = new_dir
@@ -178,11 +179,22 @@ func _physics_process(delta):
 	var ctp_w = tilemap.tile_to_world_position(cur_tile_pos)
 	
 	# now get instruction and move yes, else keep using last delta
-	if cur_tile_pos != last_tile_pos:
+	if cur_tile_pos.x != last_tile_pos.x or cur_tile_pos.y != last_tile_pos.y:
 		var mid_dist = ctp_w.distance_to((position - Vector2(16, 16)) / 2)
+		print(cur_tile_pos, ", ", mid_dist)
 		if mid_dist < 12:
 			cur_move_delta = _interpret()
-			last_tile_pos = cur_tile_pos
+			last_tile_pos.x = cur_tile_pos.x
+			last_tile_pos.y = cur_tile_pos.y
+			
+			var actual_move = cur_move_delta * MOVEMENT_TEST
+			print(actual_move)
+			if tilemap.test_position_movable((position + actual_move) / 2):
+				position += cur_move_delta * (MOVEMENT_SPEED * delta)
+			
+			# restore
+			cur_move_delta = _direction_to_delta(cur_direction)
+			return
 	
 	var actual_move = cur_move_delta * MOVEMENT_TEST
 	if tilemap.test_position_movable((position + actual_move) / 2):
