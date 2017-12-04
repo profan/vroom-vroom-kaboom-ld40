@@ -66,6 +66,10 @@ func get_track(id):
 			found_track = track
 	return found_track
 
+func _input(event):
+	if event.is_action("back_to_menu"):
+		SceneSwitcher.goto_scene(SceneSwitcher.current_scene.from_scene_name)
+
 func _process(delta):
 	_update_labels()
 

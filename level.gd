@@ -3,6 +3,8 @@ extends Node2D
 onready var tile_map = get_node("tile_map")
 onready var taxis = get_node("taxis")
 
+var from_scene_name = false
+
 func _ready():
 	
 	Game.connect("on_play_level", self, "_on_play_level")
