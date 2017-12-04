@@ -129,6 +129,7 @@ func _on_pause():
 	set_process(false)
 	pause_btn.disabled = true
 	play_btn.disabled = false
+	_update_labels()
 
 func _on_stop():
 	play_btn.disabled = false
