@@ -44,9 +44,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 246.0
+margin_top = 197.0
 margin_right = 354.0
-margin_bottom = 323.0
+margin_bottom = 274.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -62,6 +62,7 @@ shortcut = null
 group = null
 text = "Start Game"
 flat = true
+align = 0
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="how_game_btn" type="Button" parent="."]
@@ -70,9 +71,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 317.0
+margin_top = 258.0
 margin_right = 389.0
-margin_bottom = 394.0
+margin_bottom = 335.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -88,6 +89,34 @@ shortcut = null
 group = null
 text = "How to Play"
 flat = true
+align = 0
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="cred_game_btn" type="Button" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 321.0
+margin_right = 389.0
+margin_bottom = 398.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Credits"
+flat = true
+align = 0
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="quit_game_btn" type="Button" parent="."]
@@ -96,9 +125,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 384.0
+margin_top = 386.0
 margin_right = 319.0
-margin_bottom = 461.0
+margin_bottom = 463.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -112,8 +141,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Quit Game"
+text = "Quit"
 flat = true
+align = 0
 _sections_unfolded = [ "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 
