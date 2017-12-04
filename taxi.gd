@@ -58,6 +58,13 @@ func _ready():
 	
 	# resetto
 	on_stop()
+
+func _label_input(ev):
+	print("Y")
+	if ev is InputEventMouseButton:
+		if ev.pressed and ev.button_index == 1:
+			Game.scroll_to_taxi_id(taxi_id)
+			print("PEW!")
 	
 func type():
 	return "Taxi"
@@ -74,6 +81,9 @@ func _on_area_exit(a):
 
 func _on_toggle_labels(v):
 	label_panel.visible = v
+
+func _on_label_press():
+	Game.scroll_to_taxi_id(taxi_id)
 
 func set_tilemap(tm):
 	tilemap = tm

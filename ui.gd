@@ -1,5 +1,10 @@
 extends Control
 
+# containers
+onready var top_container = get_node("top_container")
+onready var capture_zoom = get_node("capture_zoom")
+onready var instr_container = get_node("instr_container")
+
 # add instructions
 onready var turn_left_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_left_btn")
 onready var turn_right_btn = get_node("instr_container/instr_panels/instr_panel/instructions/turn_right_btn")
@@ -23,7 +28,16 @@ onready var tracks = get_node("instr_container/instr_panels/tracks_panel/tracks_
 # intermediate state
 var current_track
 
+func _enter_capture():
+	Game.set_ui_focus(false)
+
+func _exit_capture():
+	Game.set_ui_focus(true)
+
 func _ready():
+	
+	capture_zoom.connect("mouse_entered", self, "_enter_capture")
+	capture_zoom.connect("mouse_exited", self, "_exit_capture")
 	
 	turn_left_btn.connect("pressed", self, "_on_turn_left")
 	turn_right_btn.connect("pressed", self, "_on_turn_right")

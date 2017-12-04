@@ -75,6 +75,20 @@ scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
 direction = 1
 
+[node name="3" parent="taxis" instance=ExtResource( 5 )]
+
+position = Vector2( 352, 182 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+direction = 1
+
+[node name="4" parent="taxis" instance=ExtResource( 5 )]
+
+position = Vector2( 480, 305 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Collision", "Offset", "Transform", "collision" ]
+direction = 0
+
 [node name="destinations" type="Node" parent="."]
 
 [node name="1" parent="destinations" instance=ExtResource( 6 )]
@@ -88,6 +102,20 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 480, 353 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="3" parent="destinations" instance=ExtResource( 6 )]
+
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 288, 416 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="4" parent="destinations" instance=ExtResource( 6 )]
+
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 194, 288 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

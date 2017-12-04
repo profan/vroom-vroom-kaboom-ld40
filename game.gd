@@ -31,6 +31,7 @@ var current_time
 var dead_taxis
 
 var current_state
+var ui_has_focus
 
 func _ready():
 	set_process(false)
@@ -46,6 +47,7 @@ func start_level():
 	taxis_dead = 0
 	current_time = 0
 	dead_taxis = {}
+	ui_has_focus = false
 
 func register_taxi(taxi):
 	taxis[taxi.taxi_id] = taxi
@@ -77,6 +79,15 @@ func restore_taxis(scene):
 	for tid in dead_taxis:
 		scene.add_child(dead_taxis[tid])
 	dead_taxis.clear()
+
+func ui_has_focus():
+	return ui_has_focus
+
+func set_ui_focus(v):
+	ui_has_focus = v
+	
+func scroll_to_taxi_id(tid):
+	pass
 
 # control flow
 func run_level():

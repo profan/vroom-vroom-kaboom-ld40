@@ -27,6 +27,7 @@ func _on_stop_level():
 		taxi.on_stop()
 
 func _input(event):
+	return
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == 1:
 			var mouse_pos = get_global_mouse_position()
