@@ -5,7 +5,7 @@ export(int, "UP", "DOWN", "LEFT", "RIGHT") var direction;
 onready var sprite = get_node("sprite")
 
 var MOVEMENT_SPEED = 128 # pixels per second i guess, half a tile?
-var MOVEMENT_TEST = 40
+var MOVEMENT_TEST = 32
 
 enum Direction {
 	UP,
@@ -26,7 +26,10 @@ var taxi_dir
 var taxi_pos
 
 # intermediate
+var cur_move_delta = Vector2()
 var cur_direction
+var last_tile_pos
+var cur_tile_pos
 
 # vm stuff
 var instructions
@@ -44,6 +47,8 @@ func _ready():
 
 func set_tilemap(tm):
 	tilemap = tm
+	last_tile_pos = tilemap.world_to_tile_position(position / 2)
+	cur_tile_pos = last_tile_pos
 
 func _on_new_instructions(instr):
 	if not is_physics_processing():
@@ -59,6 +64,7 @@ func on_pause():
 func on_stop():
 	sprite.rotation_deg = 0
 	cur_direction = taxi_dir
+	cur_move_delta = _direction_to_delta(cur_direction)
 	set_physics_process(false)
 	rotation_deg = _get_rotation_angle()
 	position = taxi_pos
@@ -120,7 +126,7 @@ func _interpret():
 	var current_move = _direction_to_delta(cur_direction)
 	
 	if instructions == null: return current_move
-	if instructions.length() != 0 and pc < instructions.length():
+	if instructions.length() != 0 and pc < instructions.length() - 1:
 		var cur_instr = instructions[pc]
 		print(cur_instr)
 		if cur_instr == "<":
@@ -136,7 +142,7 @@ func _interpret():
 				new_move.x = current_move.x
 				new_move.y = current_move.y
 		elif cur_instr == ">":
-			var new_dir = _direction_turn(cur_direction, Turn.LEFT)
+			var new_dir = _direction_turn(cur_direction, Turn.RIGHT)
 			var move_delta = _direction_to_delta(new_dir)
 			var right_move = move_delta * MOVEMENT_TEST
 			if tilemap.test_position_movable((position + right_move) / 2):
@@ -168,10 +174,16 @@ func _physics_process(delta):
 	
 	sprite.rotation_deg = 0
 	rotation_deg = _get_rotation_angle()
+	cur_tile_pos = tilemap.world_to_tile_position(position / 2)
+	var ctp_w = tilemap.tile_to_world_position(cur_tile_pos)
 	
-	# now get instruction and move yes
-	var current_move_delta = _interpret()
+	# now get instruction and move yes, else keep using last delta
+	if cur_tile_pos != last_tile_pos:
+		var mid_dist = ctp_w.distance_to((position - Vector2(16, 16)) / 2)
+		if mid_dist < 12:
+			cur_move_delta = _interpret()
+			last_tile_pos = cur_tile_pos
 	
-	var actual_move = current_move_delta * MOVEMENT_TEST
+	var actual_move = cur_move_delta * MOVEMENT_TEST
 	if tilemap.test_position_movable((position + actual_move) / 2):
-		position += current_move_delta * (MOVEMENT_SPEED * delta)
+		position += cur_move_delta * (MOVEMENT_SPEED * delta)

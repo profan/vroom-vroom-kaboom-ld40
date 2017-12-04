@@ -60,16 +60,13 @@ func _on_taxi_selected(tid):
 	current_track = get_track(tid)
 
 func _on_turn_left():
-	if current_track != null:
-		current_track.add_instruction("<")
+	pass
 
 func _on_turn_right():
-	if current_track != null:
-		current_track.add_instruction(">")
+	pass
 
 func _on_uturn():
-	if current_track != null:
-		current_track.add_instruction("u")
+	pass
 	
 func _on_play():
 	Game.run_level()

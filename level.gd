@@ -35,6 +35,9 @@ func _input(event):
 			print("clicked tile position: ", tile_pos)
 			print("clicked tile type: ", tile_type)
 
+func tile_to_world_position(pos):
+	return tile_map.map_to_world(pos)
+
 func world_to_tile_position(pos):
 	return tile_map.world_to_map(pos)
 
