@@ -12,6 +12,10 @@ enum State {
 	STOPPED
 }
 
+# historic state, to be saved maybe?
+var completed_levels
+
+# signal stuff
 signal on_taxi_registered(taxi)
 signal on_taxi_selected(tid)
 signal on_taxi_success(taxi)
@@ -36,6 +40,7 @@ var current_state
 var ui_has_focus
 
 func _ready():
+	completed_levels = {}
 	set_process(false)
 
 func _process(delta):
@@ -69,6 +74,8 @@ func taxi_reached_destination(taxi):
 		dead_taxis[taxi.taxi_id] = taxi
 		emit_signal("on_taxi_success", taxi)
 	if taxis_done == get_taxi_count():
+		var cur_scene_name = SceneSwitcher.current_scene.get_name()
+		completed_levels[cur_scene_name] = true
 		emit_signal("on_level_completed")
 
 func taxi_got_exploded(taxi):
