@@ -22,6 +22,10 @@ onready var time_label = get_node("top_container/time_container/time_value")
 onready var score_taxis_label = get_node("top_container/time_container/score_taxis_value")
 onready var score_alive_label = get_node("top_container/time_container/score_alive_value")
 
+# win labels
+onready var win_taxi_rating_label = get_node("win_dialog/win_panel/items/taxi_rating/taxi_rating_value")
+onready var win_time_rating_label = get_node("win_dialog/win_panel/items/time_rating/time_rating_value")
+
 # ui stuff
 onready var show_labels_checkbox = get_node("top_container/time_container/show_labels_checkbox")
 
