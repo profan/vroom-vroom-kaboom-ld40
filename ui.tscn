@@ -771,13 +771,28 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="back_btn" type="Button" parent="win_dialog/win_panel/items"]
+[node name="spacer2" type="Control" parent="win_dialog/win_panel/items"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 147.0
+margin_right = 344.0
+margin_bottom = 147.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="back_btn" type="Button" parent="win_dialog/win_panel/items"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 151.0
 margin_right = 344.0
 margin_bottom = 216.0
 rect_pivot_offset = Vector2( 0, 0 )
