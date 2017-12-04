@@ -197,6 +197,8 @@ func _physics_process(delta):
 	var ctp_w = tilemap.tile_to_world_position(cur_tile_pos)
 	if cur_direction == Direction.UP:
 		ctp_w.x += 16
+	elif cur_direction == Direction.LEFT:
+		ctp_w.y += 16
 	else:
 		ctp_w.x += 16
 		ctp_w.y += 16
