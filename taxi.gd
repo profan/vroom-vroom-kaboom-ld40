@@ -238,16 +238,14 @@ func _physics_process(delta):
 		# debug
 		ctp_pos = ctp_w
 		mid_tile_pos = (position - Vector2(16, 16)) / 2
-		
 		var mid_dist = ctp_w.distance_to((position - Vector2(16, 16)) / 2)
-		print(cur_tile_pos, ", ", mid_dist)
+
 		if mid_dist < 12:
 			cur_move_delta = _interpret()
 			last_tile_pos.x = cur_tile_pos.x
 			last_tile_pos.y = cur_tile_pos.y
 			
 			var actual_move = cur_move_delta * MOVEMENT_TEST
-			print(actual_move)
 			if tilemap.test_position_movable((position + actual_move) / 2):
 				position += cur_move_delta * (MOVEMENT_SPEED * delta)
 			
