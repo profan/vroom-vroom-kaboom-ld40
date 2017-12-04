@@ -42,11 +42,15 @@ func _ready():
 	turn_left_btn.connect("pressed", self, "_on_turn_left")
 	turn_right_btn.connect("pressed", self, "_on_turn_right")
 	
-	play_btn.connect("pressed", self, "_on_play")
-	pause_btn.connect("pressed", self, "_on_pause")
-	stop_btn.connect("pressed", self, "_on_stop")
+	play_btn.connect("pressed", self, "_on_play_btn")
+	pause_btn.connect("pressed", self, "_on_pause_btn")
+	stop_btn.connect("pressed", self, "_on_stop_btn")
 	
 	show_labels_checkbox.connect("toggled", self, "_on_show_labels_checkbox_toggled")
+	
+	Game.connect("on_play_level", self, "_on_play")
+	Game.connect("on_pause_level", self, "_on_pause")
+	Game.connect("on_stop_level", self, "_on_stop")
 	
 	Game.connect("on_taxi_registered", self, "_on_taxi_registered")
 	Game.connect("on_taxi_selected", self, "_on_taxi_selected")
@@ -101,15 +105,22 @@ func _on_turn_left():
 func _on_turn_right():
 	pass
 	
-func _on_play():
+func _on_play_btn():
 	Game.run_level()
+	
+func _on_pause_btn():
+	Game.pause_level()
+
+func _on_stop_btn():
+	Game.stop_level()
+	
+func _on_play():
 	set_process(true)
 	pause_btn.disabled = false
 	play_btn.disabled = true
 	stop_btn.disabled = false
 
 func _on_pause():
-	Game.pause_level()
 	set_process(false)
 	pause_btn.disabled = true
 	play_btn.disabled = false
@@ -119,6 +130,5 @@ func _on_stop():
 	stop_btn.disabled = true
 	pause_btn.disabled = true
 	time_label.text = "0.00s"
-	Game.stop_level()
 	_update_labels()
 	set_process(false)

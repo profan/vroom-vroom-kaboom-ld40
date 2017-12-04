@@ -19,8 +19,9 @@ func _ready():
 		taxi.set_tilemap(self)
 
 func _on_level_completed():
+	Game.call_deferred("stop_level")
 	pass
-	#SceneSwitcher.goto_scene(from_scene_name)
+	# SceneSwitcher.goto_scene(from_scene_name)
 
 func _on_play_level():
 	for taxi in taxis.get_children():
