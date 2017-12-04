@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/template.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://taxi.tscn" type="PackedScene" id=3]
-[ext_resource path="res://dropoff.tscn" type="PackedScene" id=4]
+[ext_resource path="res://taxi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://dropoff.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tileset.tres" type="TileSet" id=4]
 
 [node name="1" instance=ExtResource( 1 )]
 
@@ -11,11 +11,21 @@
 
 position = Vector2( 161, 94 )
 
+[node name="1" parent="taxis" instance=ExtResource( 2 )]
+
+position = Vector2( 96, 352 )
+
+[node name="1" parent="destinations" instance=ExtResource( 3 )]
+
+modulate = Color( 0.453125, 1, 0, 1 )
+position = Vector2( 160, -31 )
+_sections_unfolded = [ "Visibility" ]
+
 [node name="tile_map" type="TileMap" parent="."]
 
 scale = Vector2( 2, 2 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -30,19 +40,5 @@ collision_mask = 1
 occluder_light_mask = 1
 tile_data = PoolIntArray( -1, 19, -65536, 18, -65535, 18, -65534, -1610612716, -65533, 18, -65532, 18, -65531, 19, 65535, -1073741806, 0, 4, 1, 0, 2, 9, 3, 0, 4, 3, 5, -1610612718, 131071, -1073741806, 65536, 2, 65537, 1610612753, 65538, 13, 65539, -1073741807, 65540, 2, 65541, -1610612718, 196607, -1073741806, 131072, 2, 131073, -1610612719, 131074, 18, 131075, 17, 131076, 2, 131077, -1610612718, 262143, -1073741806, 196608, 7, 196609, 1, 196610, 10, 196611, 1, 196612, 5, 196613, -1610612718, 327679, -1073741806, 262144, 13, 262145, 19, 262146, -1610612735, 262147, 1610612753, 262148, 1610612754, 262149, 19, 393215, -1073741806, 327680, 7, 327681, 1, 327682, 5, 327683, -1610612718, 327684, 19, 458751, 19, 393216, 1610612754, 393217, 1610612754, 393218, 1610612754, 393219, 19 )
 _sections_unfolded = [ "Cell", "Transform" ]
-
-[node name="1" parent="taxis" instance=ExtResource( 3 )]
-
-position = Vector2( 96, 352 )
-
-[node name="1" parent="destinations" instance=ExtResource( 4 )]
-
-modulate = Color( 0.453125, 1, 0, 1 )
-position = Vector2( 160, -31 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="ui" parent="canvas"]
-
-visible = false
 
 
