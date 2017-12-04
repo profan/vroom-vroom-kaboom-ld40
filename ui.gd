@@ -12,7 +12,8 @@ onready var stop_btn = get_node("instr_container/instr_panels/instr_panel/instru
 
 # labels to update
 onready var time_label = get_node("top_container/time_container/time_value")
-onready var taxis_label = get_node("top_container/time_container/taxis_value")
+onready var score_taxis_label = get_node("top_container/time_container/score_taxis_value")
+onready var score_alive_label = get_node("top_container/time_container/score_alive_value")
 
 # tracks of instructions
 onready var tracks = get_node("instr_container/instr_panels/tracks_panel/tracks_scroll/tracks")
@@ -32,10 +33,17 @@ func _ready():
 	set_process(false)
 
 func _process(delta):
+	_update_labels()
+
+func _update_labels():
+	var taxis_done = 0
+	var taxis_alive_percentage = (Game.get_taxi_count() / 1) * 100
 	time_label.text = "%.2f s" % Game.current_time
+	score_taxis_label.text = "%s/%s" % [taxis_done, Game.get_taxi_count()]
+	score_alive_label.text = "%s %%" % taxis_alive_percentage
 
 func _on_taxi_registered(taxi):
-	taxis_label.text = str(Game.get_taxi_count())
+	_update_labels()
 
 func _on_turn_left():
 	first_track.add_instruction("<")

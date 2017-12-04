@@ -86,40 +86,78 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="taxis_label" type="Label" parent="top_container/time_container"]
+[node name="score_taxis_label" type="Label" parent="top_container/time_container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 63.0
-margin_right = 110.0
+margin_right = 148.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "| Taxis:"
+text = "| Taxis Done:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="taxis_value" type="Label" parent="top_container/time_container"]
+[node name="score_taxis_value" type="Label" parent="top_container/time_container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 114.0
-margin_right = 122.0
+margin_left = 152.0
+margin_right = 173.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "0"
+text = "0/0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score_alive_label" type="Label" parent="top_container/time_container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 177.0
+margin_right = 260.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "| Taxis Alive:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score_alive_value" type="Label" parent="top_container/time_container"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 264.0
+margin_right = 304.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "100 %"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -149,7 +187,7 @@ anchor_bottom = 0.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 953.0
-margin_bottom = 177.0
+margin_bottom = 173.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -164,7 +202,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 154.0
-margin_bottom = 170.0
+margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -180,7 +218,7 @@ anchor_bottom = 0.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 147.0
-margin_bottom = 163.0
+margin_bottom = 159.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -408,7 +446,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 158.0
 margin_right = 946.0
-margin_bottom = 170.0
+margin_bottom = 166.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -425,13 +463,14 @@ anchor_bottom = 0.0
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 781.0
-margin_bottom = 163.0
+margin_bottom = 159.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 scroll_horizontal = true
 scroll_vertical = true
+_sections_unfolded = [ "Mouse" ]
 
 [node name="tracks" type="VBoxContainer" parent="instr_container/instr_panels/tracks_panel/tracks_scroll"]
 
@@ -440,7 +479,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 774.0
-margin_bottom = 32.0
+margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -452,7 +491,7 @@ _sections_unfolded = [ "Size Flags" ]
 [node name="track" parent="instr_container/instr_panels/tracks_panel/tracks_scroll/tracks" instance=ExtResource( 2 )]
 
 margin_right = 774.0
-margin_bottom = 32.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 0, 32 )
 
 

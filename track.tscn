@@ -17,7 +17,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Columns", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Columns", "Mouse", "Rect", "Size Flags" ]
 
 [node name="id_panel" type="PanelContainer" parent="."]
 
@@ -25,9 +25,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+margin_right = 46.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -35,26 +34,29 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="id" type="Label" parent="id_panel"]
+[node name="id" type="Button" parent="id_panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 7.0
-margin_top = 9.0
-margin_right = 25.0
-margin_bottom = 23.0
+margin_top = 7.0
+margin_right = 39.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 32, 32 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 2
+mouse_filter = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 text = "1"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+_sections_unfolded = [ "Rect" ]
 
 [node name="instructions" type="ItemList" parent="."]
 
@@ -62,9 +64,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 36.0
+margin_left = 50.0
 margin_right = 230.0
-margin_bottom = 32.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 size_flags_horizontal = 3
