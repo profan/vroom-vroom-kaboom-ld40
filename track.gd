@@ -1,13 +1,17 @@
 extends HBoxContainer
 
 onready var id_btn = get_node("id_panel/id")
-onready var instr_list = get_node("instructions")
+onready var instr_list = get_node("instructions_panel/instructions")
 
 var selected_index
+var instructions
+
+signal on_instructions_changed(new_instr)
 
 func _ready():
-	instr_list.connect("item_selected", self, "_on_item_selected")
+	instr_list.connect("gui_input", self, "_on_edit_instructions")
 	id_btn.connect("pressed", self, "_on_id_press")
+	emit_signal("on_instructions_changed", get_instructions())
 
 func set_track_index(i):
 	id_btn.text = str(i)
@@ -15,20 +19,11 @@ func set_track_index(i):
 func get_track_id():
 	return int(id_btn.text)
 
-func add_instruction(instr):
-	instr_list.add_item(instr)
+func get_instructions():
+	return instr_list.get_text()
+
+func _on_edit_instructions(ev):
+	emit_signal("on_instructions_changed", get_instructions())
 
 func _on_id_press():
 	Game.select_taxi(int(id_btn.text))
-
-func _on_nothing_selected():
-	selected_index = -1
-
-func _on_item_selected(i):
-	selected_index = i
-
-func _input(event):
-	if event.is_action("delete_instruction"):
-		if selected_index != -1:
-			instr_list.remove_item(selected_index)
-			selected_index = -1

@@ -27,7 +27,7 @@ var taxi_pos
 
 # vm stuff
 var instructions
-var pc = 0
+var pc
 
 # refs
 var tilemap
@@ -41,6 +41,10 @@ func _ready():
 func set_tilemap(tm):
 	tilemap = tm
 
+func _on_new_instructions(instr):
+	instructions = instr
+	pc = 0
+
 func on_play():
 	set_physics_process(true)
 
@@ -49,8 +53,10 @@ func on_pause():
 
 func on_stop():
 	set_physics_process(false)
-	position = taxi_pos
+	direction = taxi_dir
 	rotation_deg = _get_rotation_angle()
+	position = taxi_pos
+	pc = 0
 
 func _get_rotation_angle():
 	if taxi_dir == Direction.UP:
@@ -107,35 +113,47 @@ func _interpret():
 	var new_move = Vector2()
 	var current_move = _direction_to_delta(taxi_dir)
 	
-	if instructions.size() != 0 and pc < instructions.size() - 1:
+	if instructions == null: return current_move
+	if instructions.length() != 0 and pc < instructions.length() - 1:
 		var cur_instr = instructions[pc]
 		if cur_instr == "<":
-			var left_move = _direction_to_delta(_direction_turn(taxi_dir, Turn.LEFT)) * MOVEMENT_TEST
+			var new_dir = _direction_turn(taxi_dir, Turn.LEFT)
+			var move_delta = _direction_to_delta(new_dir)
+			var left_move = move_delta * MOVEMENT_TEST
 			if tilemap.test_position_movable((position + left_move) / 2):
 				new_move.x = left_move.x
 				new_move.y = left_move.y
+				taxi_dir = new_dir
 				pc += 1
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
 		elif cur_instr == ">":
-			var right_move = _direction_to_delta(_direction_turn(taxi_dir, Turn.RIGHT)) * MOVEMENT_TEST
+			var new_dir = _direction_turn(taxi_dir, Turn.LEFT)
+			var move_delta = _direction_to_delta(new_dir)
+			var right_move = move_delta * MOVEMENT_TEST
 			if tilemap.test_position_movable((position + right_move) / 2):
 				new_move.x = right_move.x
 				new_move.y = right_move.y
+				taxi_dir = new_dir
 				pc += 1
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
 		elif cur_instr == "u":
-			var uturn_move = _direction_to_delta(_direction_turn(taxi_dir, Turn.UTURN)) * MOVEMENT_TEST
+			var new_dir = _direction_turn(taxi_dir, Turn.UTURN)
+			var move_delta = _direction_to_delta(new_dir)
+			var uturn_move = move_delta * MOVEMENT_TEST
 			if tilemap.test_position_movable((position + uturn_move) / 2):
 				new_move.x = uturn_move.x
 				new_move.y = uturn_move.y
+				taxi_dir = new_dir
 				pc += 1
 			else:
 				new_move.x = current_move.x
 				new_move.y = current_move.y
+		else:
+			return current_move
 	
 	return new_move
 
