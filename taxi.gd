@@ -27,18 +27,19 @@ func _ready():
 	taxi_id = 1
 	taxi_dir = direction
 	taxi_pos = Vector2(position.x, position.y)
-	set_physics_process(true)
+	set_physics_process(false)
 
 func set_tilemap(tm):
 	tilemap = tm
 
 func on_play():
-	pass
+	set_physics_process(true)
 
 func on_pause():
-	pass
+	set_physics_process(false)
 
 func on_stop():
+	set_physics_process(false)
 	position = taxi_pos
 
 func _physics_process(delta):
