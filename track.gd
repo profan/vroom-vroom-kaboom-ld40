@@ -44,7 +44,7 @@ func _on_pause_level():
 
 func _on_stop_level():
 	instr_pointer.visible = false
-	instr_pointer.rect_position.x = 7
+	instr_pointer.rect_position.x = 7 # what the fuc
 	instr_list.editable = true
 
 func _on_id_press():
