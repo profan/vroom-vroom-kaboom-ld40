@@ -1,5 +1,7 @@
 extends Node
 
+var explosion = load("res://explosion.tscn")
+
 const Instructions = {
 	LEFT_TURN = "<",
 	RIGHT_TURN = ">",
@@ -99,6 +101,12 @@ func taxi_got_exploded(taxi):
 		taxis[taxi.taxi_id] = null
 		dead_taxis[taxi.taxi_id] = taxi
 		emit_signal("on_taxi_success", taxi)
+		var taxi_pos = Vector2(taxi.global_position.x, taxi.global_position.y)
+		# emit explosion yes
+		var cur_scene = SceneSwitcher.current_scene
+		var new_explosion = explosion.instance()
+		cur_scene.add_child(new_explosion)
+		new_explosion.global_position = taxi_pos
 
 func select_taxi(tid):
 	emit_signal("on_taxi_selected", tid)
