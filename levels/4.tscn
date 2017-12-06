@@ -9,7 +9,7 @@
 
 [node name="1" parent="taxis" instance=ExtResource( 2 )]
 
-position = Vector2( -187.655, -31.0664 )
+position = Vector2( -187, -33 )
 
 [node name="2" parent="taxis" instance=ExtResource( 2 )]
 
@@ -23,12 +23,12 @@ direction = 1
 
 [node name="4" parent="taxis" instance=ExtResource( 2 )]
 
-position = Vector2( 133.523, -31.0664 )
+position = Vector2( 135, -32 )
 direction = 2
 
 [node name="5" parent="taxis" instance=ExtResource( 2 )]
 
-position = Vector2( -368.339, -32.9479 )
+position = Vector2( -368.339, -32 )
 
 [node name="6" parent="taxis" instance=ExtResource( 2 )]
 
