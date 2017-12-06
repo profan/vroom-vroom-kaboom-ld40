@@ -9,7 +9,7 @@
 
 [node name="1" parent="taxis" instance=ExtResource( 2 )]
 
-position = Vector2( -187.655, -32.2464 )
+position = Vector2( -187.655, -31.0664 )
 
 [node name="2" parent="taxis" instance=ExtResource( 2 )]
 
